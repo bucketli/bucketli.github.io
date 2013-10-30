@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 团队和产品规划
+title: 拉去mysql binlog停在错误位点的解决方法
 ---
 
 {{ page.title }}
@@ -8,4 +8,6 @@ title: 团队和产品规划
 
 <p class="meta">27 Sep 2013 - 杭州</p>
 
-规划从现状和趋势中取得一个相对平衡的结果，从另外一个角度来说，
+```
+show binlog events in 'mysql-bin.002334' from 0482929187 limit 10
+```
