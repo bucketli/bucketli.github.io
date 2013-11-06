@@ -1,6 +1,3 @@
-sudo /etc/init.d/mysql restart
-
-
 ---
 layout: post
 title: mysql的一些操作
