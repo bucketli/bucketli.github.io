@@ -15,11 +15,6 @@ const formatDate = (date: Date) =>
 ---
 
 <BaseLayout>
-  <section class="intro">
-    <h1>Writing</h1>
-    <p>Notes on software, systems, and the work around them.</p>
-  </section>
-
   {posts.length > 0 ? (
     <ol class="post-list">
       {posts.map((post) => (

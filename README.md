@@ -1,4 +1,4 @@
-# Bucket Li Blog
+# John Li's Blog
 
 A minimal static blog built with Astro and deployed to GitHub Pages.
 

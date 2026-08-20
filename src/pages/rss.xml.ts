@@ -7,7 +7,7 @@ export async function GET(context: { site: URL }) {
   );
 
   return rss({
-    title: 'Bucket Li',
+    title: "John Li's Blog",
     description: 'Notes on software, systems, and the work around them.',
     site: context.site,
     items: posts.map((post) => ({
