@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
+);
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat('zh-CN', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(date);
+---
+
+<BaseLayout>
+  <section class="intro">
+    <h1>文章</h1>
+    <p>记录技术、工作与日常思考。</p>
+  </section>
+
+  {posts.length > 0 ? (
+    <ol class="post-list">
+      {posts.map((post) => (
+        <li>
+          <a href={`/posts/${post.id}/`}>
+            <span class="post-list-title">{post.data.title}</span>
+            <time datetime={post.data.publishedAt.toISOString()}>
+              {formatDate(post.data.publishedAt)}
+            </time>
+          </a>
+          <p>{post.data.description}</p>
+        </li>
+      ))}
+    </ol>
+  ) : (
+    <p class="empty-state">还没有文章。</p>
+  )}
+</BaseLayout>
