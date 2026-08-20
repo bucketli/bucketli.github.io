@@ -25,10 +25,41 @@ const formatDate = (date: Date) =>
       <p class="post-meta">
         <time datetime={publishedAt.toISOString()}>{formatDate(publishedAt)}</time>
         {updatedAt && <> · Updated <time datetime={updatedAt.toISOString()}>{formatDate(updatedAt)}</time></>}
+        <span class="view-count" data-view-count data-path={Astro.url.pathname} hidden>
+          <span aria-hidden="true"> · </span>
+          <span data-view-count-value></span>
+        </span>
       </p>
     </header>
     <div class="prose">
       <slot />
     </div>
   </article>
+  <script is:inline>
+    const counter = document.querySelector('[data-view-count]');
+
+    if (counter instanceof HTMLElement) {
+      const path = counter.dataset.path;
+      const value = counter.querySelector('[data-view-count-value]');
+
+      if (path && value) {
+        fetch(`https://bucketli.goatcounter.com/counter/${encodeURIComponent(path)}.json`)
+          .then((response) => {
+            if (!response.ok) throw new Error('View count is not available');
+            return response.json();
+          })
+          .then((data) => {
+            const count = String(data.count ?? '').trim();
+            if (!count) return;
+
+            const numericCount = Number(count.replaceAll(',', ''));
+            value.textContent = `${count} ${numericCount === 1 ? 'view' : 'views'}`;
+            counter.hidden = false;
+          })
+          .catch(() => {
+            // Keep the counter hidden when GoatCounter has no data or is blocked.
+          });
+      }
+    }
+  </script>
 </BaseLayout>
