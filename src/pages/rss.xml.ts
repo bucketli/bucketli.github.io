@@ -8,7 +8,7 @@ export async function GET(context: { site: URL }) {
 
   return rss({
     title: 'Bucket Li',
-    description: '记录技术、工作与日常思考。',
+    description: 'Notes on software, systems, and the work around them.',
     site: context.site,
     items: posts.map((post) => ({
       title: post.data.title,
@@ -16,6 +16,6 @@ export async function GET(context: { site: URL }) {
       pubDate: post.data.publishedAt,
       link: `/posts/${post.id}/`,
     })),
-    customData: '<language>zh-CN</language>',
+    customData: '<language>en</language>',
   });
 }

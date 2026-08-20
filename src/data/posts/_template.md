@@ -1,8 +1,8 @@
 ---
-title: 文章标题
-description: 一句话摘要
+title: Post title
+description: A one-sentence summary.
 publishedAt: 2026-08-20
 draft: true
 ---
 
-从这里开始写正文。
+Start writing here.

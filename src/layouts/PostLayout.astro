@@ -10,7 +10,7 @@ interface Props {
 
 const { title, description, publishedAt, updatedAt } = Astro.props;
 const formatDate = (date: Date) =>
-  new Intl.DateTimeFormat('zh-CN', {
+  new Intl.DateTimeFormat('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -20,11 +20,11 @@ const formatDate = (date: Date) =>
 <BaseLayout title={title} description={description}>
   <article class="post">
     <header class="post-header">
-      <a class="back-link" href="/">← 返回文章列表</a>
+      <a class="back-link" href="/">← All posts</a>
       <h1>{title}</h1>
       <p class="post-meta">
         <time datetime={publishedAt.toISOString()}>{formatDate(publishedAt)}</time>
-        {updatedAt && <> · 更新于 <time datetime={updatedAt.toISOString()}>{formatDate(updatedAt)}</time></>}
+        {updatedAt && <> · Updated <time datetime={updatedAt.toISOString()}>{formatDate(updatedAt)}</time></>}
       </p>
     </header>
     <div class="prose">

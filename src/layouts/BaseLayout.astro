@@ -8,14 +8,14 @@ interface Props {
 
 const {
   title = 'Bucket Li',
-  description = '记录技术、工作与日常思考。',
+  description = 'Notes on software, systems, and the work around them.',
 } = Astro.props;
 const pageTitle = title === 'Bucket Li' ? title : `${title} · Bucket Li`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -29,8 +29,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <div class="site-shell">
       <header class="site-header">
         <a class="site-name" href="/">Bucket Li</a>
-        <nav aria-label="主导航">
-          <a href="/">文章</a>
+        <nav aria-label="Primary navigation">
+          <a href="/">Writing</a>
           <a href="/rss.xml">RSS</a>
         </nav>
       </header>

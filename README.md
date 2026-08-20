@@ -1,41 +1,41 @@
 # Bucket Li Blog
 
-一个使用 Astro 构建的简洁静态博客，部署在 GitHub Pages。
+A minimal static blog built with Astro and deployed to GitHub Pages.
 
-## 本地预览
+## Local development
 
-需要 Node.js 22.12 或更高版本。
+Node.js 22.12 or later is required.
 
 ```bash
 npm install
 npm run dev
 ```
 
-打开终端提示的本地地址即可预览。发布前可以运行：
+Open the local URL shown in the terminal. Before publishing, you can run:
 
 ```bash
 npm run build
 npm run preview
 ```
 
-## 写文章
+## Writing a post
 
-在 `src/data/posts/` 中新建 Markdown 文件，例如 `hello-world.md`：
+Create a Markdown file in `src/data/posts/`, for example `hello-world.md`:
 
 ```md
 ---
-title: 文章标题
-description: 一句话摘要
+title: Post title
+description: A one-sentence summary
 publishedAt: 2026-08-20
 draft: false
 ---
 
-这里是正文。
+Start writing here.
 ```
 
-文件名会成为文章地址，例如上面的文件会生成 `/posts/hello-world/`。
-将 `draft` 设为 `true` 时，文章不会出现在构建结果中。
+The filename becomes the post URL, so the example above is generated at `/posts/hello-world/`.
+Set `draft` to `true` to exclude a post from the generated site.
 
-## 发布
+## Deployment
 
-推送到 `master` 分支后，GitHub Actions 会自动构建并发布。首次使用时，需要在仓库的 **Settings → Pages → Build and deployment** 中将 Source 设为 **GitHub Actions**。
+Pushing to the `master` branch automatically builds and deploys the site. For the first deployment, set **Settings → Pages → Build and deployment → Source** to **GitHub Actions**.

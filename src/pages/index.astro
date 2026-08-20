@@ -7,7 +7,7 @@ const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
 );
 
 const formatDate = (date: Date) =>
-  new Intl.DateTimeFormat('zh-CN', {
+  new Intl.DateTimeFormat('en-US', {
     year: 'numeric',
     month: '2-digit',
     day: '2-digit',
@@ -16,8 +16,8 @@ const formatDate = (date: Date) =>
 
 <BaseLayout>
   <section class="intro">
-    <h1>文章</h1>
-    <p>记录技术、工作与日常思考。</p>
+    <h1>Writing</h1>
+    <p>Notes on software, systems, and the work around them.</p>
   </section>
 
   {posts.length > 0 ? (
@@ -35,6 +35,6 @@ const formatDate = (date: Date) =>
       ))}
     </ol>
   ) : (
-    <p class="empty-state">还没有文章。</p>
+    <p class="empty-state">Nothing published yet.</p>
   )}
 </BaseLayout>
