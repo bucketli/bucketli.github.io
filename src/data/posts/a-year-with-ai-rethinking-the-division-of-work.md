@@ -1,5 +1,5 @@
 ---
-title: A Year of Coding with AI Changed How I Think About the Work We Share
+title: How Coding with AI Changed What I Value in Work—and in People
 description: After a year of coding with AI, execution is easier—but judgment, context, prioritization, and knowing when to stop matter more than ever.
 publishedAt: 2026-10-23
 draft: false
